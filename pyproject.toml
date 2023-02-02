@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pydra-tasks-fsl"
+version = "0.0.1"
+description = "Pydra tasks for FSL"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "Apache-2.0"
+keywords = ["pydra", "neuroimaging", "fsl"]
+authors = [
+  { name = "Ghislain Vaillant", email = "ghislain.vaillant@icm-institute.org" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = ["pydra >=0.21"]
+
+[project.urls]
+Documentation = "https://github.com/ghisvail/pydra-tasks-fsl#readme"
+Issues = "https://github.com/ghisvail/pydra-tasks-fsl/issues"
+Source = "https://github.com/ghisvail/pydra-tasks-fsl"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [
+  "--doctest-modules",
+  "--doctest-continue-on-failure",
+]
+testpaths = ["pydra", "tests"]
