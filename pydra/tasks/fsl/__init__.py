@@ -4,7 +4,9 @@
 """
 
 from .flirt import FLIRT
+from .fslmerge import FSLMerge
 
 __all__ = [
     "FLIRT",
+    "FSLMerge",
 ]
