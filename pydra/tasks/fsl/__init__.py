@@ -8,6 +8,7 @@ from .convert_xfm import ConvertXFM
 from .flirt import FLIRT
 from .fnirt import FNIRT
 from .fslmerge import FSLMerge
+from .fslroi import FSLROI
 
 __all__ = [
     "BET",
@@ -15,4 +16,5 @@ __all__ = [
     "FLIRT",
     "FNIRT",
     "FSLMerge",
+    "FSLROI",
 ]
