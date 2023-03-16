@@ -9,6 +9,7 @@ from .flirt import FLIRT
 from .fnirt import FNIRT
 from .fslmerge import FSLMerge
 from .fslroi import FSLROI
+from .robustfov import RobustFOV
 
 __all__ = [
     "BET",
@@ -17,4 +18,5 @@ __all__ = [
     "FNIRT",
     "FSLMerge",
     "FSLROI",
+    "RobustFOV",
 ]
