@@ -40,9 +40,10 @@ Perform a single slice registration:
 ...     output_image="outslice",
 ...     output_matrix="i2r.mat",
 ...     use_2d_rigid_body_transformation=True,
+...     verbose=True,
 ... )
 >>> task.cmdline
-'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -2D'
+'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -2D -v'
 """
 import os
 
@@ -104,6 +105,14 @@ class FLIRTSpec(pydra.specs.ShellSpec):
             "help_string": "use rigid body transformation in 2D (ignores DOF)",
             "argstr": "-2D",
         }
+    )
+
+    verbose: bool = attrs.field(
+        default=False,
+        metadata={
+            "help_string": "enable verbose logging",
+            "argstr": "-v",
+        },
     )
 
 
