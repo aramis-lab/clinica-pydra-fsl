@@ -5,6 +5,7 @@
 
 from .bet import BET
 from .convert_xfm import ConvertXFM
+from .eddy import Eddy
 from .fast import FAST
 from .flirt import FLIRT
 from .fnirt import FNIRT
@@ -16,6 +17,7 @@ from .robustfov import RobustFOV
 __all__ = [
     "BET",
     "ConvertXFM",
+    "Eddy",
     "FAST",
     "FLIRT",
     "FNIRT",
