@@ -148,11 +148,10 @@ class FLIRTSpec(pydra.specs.ShellSpec):
     )
 
     verbose: bool = attrs.field(
-        default=False,
         metadata={
             "help_string": "enable verbose logging",
             "argstr": "-v",
-        },
+        }
     )
 
 
