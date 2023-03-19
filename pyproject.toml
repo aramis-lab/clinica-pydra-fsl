@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pydra-tasks-fsl"
+name = "pydra-fsl"
 version = "0.0.1"
 description = "Pydra tasks for FSL"
 readme = "README.md"
