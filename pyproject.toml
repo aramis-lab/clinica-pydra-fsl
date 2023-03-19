@@ -30,9 +30,9 @@ classifiers = [
 dependencies = ["pydra >=0.21"]
 
 [project.urls]
-Documentation = "https://github.com/aramis-lab/pydra-tasks-fsl#readme"
-Issues = "https://github.com/aramis-lab/pydra-tasks-fsl/issues"
-Source = "https://github.com/aramis-lab/pydra-tasks-fsl"
+Documentation = "https://github.com/aramis-lab/pydra-fsl#readme"
+Issues = "https://github.com/aramis-lab/pydra-fsl/issues"
+Source = "https://github.com/aramis-lab/pydra-fsl"
 
 [tool.coverage.run]
 branch = true
