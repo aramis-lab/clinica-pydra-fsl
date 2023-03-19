@@ -15,10 +15,11 @@ Register two images together:
 ...     reference_image="refvol",
 ...     output_image="outvol",
 ...     output_matrix="invol2refvol.mat",
+...     cost_function="mutualinfo",
 ...     degrees_of_freedom=6,
 ... )
 >>> task.cmdline
-'flirt -in invol -ref refvol -out outvol -omat invol2refvol.mat -dof 6'
+'flirt -in invol -ref refvol -out outvol -omat invol2refvol.mat -cost mutualinfo -dof 6'
 
 Apply a saved transformation to another image:
 
@@ -29,7 +30,8 @@ Apply a saved transformation to another image:
 ...     apply_transformation=True,
 ... )
 >>> task.cmdline
-'flirt -in newvol -ref refvol -out ...newvol_flirt -init invol2refvol.mat -omat ...newvol_flirt.mat -applyxfm'
+'flirt -in newvol -ref refvol -out ...newvol_flirt -init invol2refvol.mat -omat ...newvol_flirt.mat \
+-cost corratio -applyxfm'
 
 Perform a single slice registration:
 
@@ -38,10 +40,11 @@ Perform a single slice registration:
 ...     reference_image="refslice",
 ...     output_image="outslice",
 ...     output_matrix="i2r.mat",
-...     use_2d_rigid_body_transformation=True,
+...     use_2d_registration=True,
+...     verbose=True,
 ... )
 >>> task.cmdline
-'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -2D'
+'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -cost corratio -2D -v'
 """
 import os
 
@@ -72,6 +75,20 @@ class FLIRTSpec(pydra.specs.ShellSpec):
         }
     )
 
+    output_datatype: str = attrs.field(
+        metadata={
+            "help_string": "output datatype",
+            "argstr": "-datatype",
+            "allowed_values": {
+                "char",
+                "short",
+                "int",
+                "float",
+                "double",
+            },
+        }
+    )
+
     input_matrix: os.PathLike = attrs.field(
         metadata={
             "help_string": "input transformation as 4x4 matrix",
@@ -88,11 +105,29 @@ class FLIRTSpec(pydra.specs.ShellSpec):
         }
     )
 
+    cost_function: str = attrs.field(
+        default="corratio",
+        metadata={
+            "help_string": "cost function",
+            "argstr": "-cost",
+            "allowed_values": {
+                "mutualinfo",
+                "corratio",
+                "normcorr",
+                "normmi",
+                "leastsq",
+                "labeldiff",
+                "bbr",
+            },
+        },
+    )
+
     degrees_of_freedom: int = attrs.field(
         metadata={
-            "help_string": "degrees of freedom (default: 12)",
+            "help_string": "degrees of freedom for the registration model",
             "argstr": "-dof",
             "allowed_values": {3, 6, 7, 9, 12},
+            "xor": {"use_2d_registration"},
         }
     )
 
@@ -104,11 +139,20 @@ class FLIRTSpec(pydra.specs.ShellSpec):
         }
     )
 
-    use_2d_rigid_body_transformation: bool = attrs.field(
+    use_2d_registration: bool = attrs.field(
         metadata={
-            "help_string": "use rigid body transformation in 2D (ignores DOF)",
+            "help_string": "use rigid-body registration model in 2D",
             "argstr": "-2D",
+            "xor": {"degrees_of_freedom"},
         }
+    )
+
+    verbose: bool = attrs.field(
+        default=False,
+        metadata={
+            "help_string": "enable verbose logging",
+            "argstr": "-v",
+        },
     )
 
 
