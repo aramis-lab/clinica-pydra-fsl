@@ -15,10 +15,11 @@ Register two images together:
 ...     reference_image="refvol",
 ...     output_image="outvol",
 ...     output_matrix="invol2refvol.mat",
+...     cost_function="mutualinfo",
 ...     degrees_of_freedom=6,
 ... )
 >>> task.cmdline
-'flirt -in invol -ref refvol -out outvol -omat invol2refvol.mat -dof 6'
+'flirt -in invol -ref refvol -out outvol -omat invol2refvol.mat -cost mutualinfo -dof 6'
 
 Apply a saved transformation to another image:
 
@@ -30,7 +31,7 @@ Apply a saved transformation to another image:
 ...     apply_transformation=True,
 ... )
 >>> task.cmdline
-'flirt -in newvol -ref refvol -out outvol -init invol2refvol.mat -applyxfm'
+'flirt -in newvol -ref refvol -out outvol -init invol2refvol.mat -cost corratio -applyxfm'
 
 Perform a single slice registration:
 
@@ -40,9 +41,10 @@ Perform a single slice registration:
 ...     output_image="outslice",
 ...     output_matrix="i2r.mat",
 ...     use_2d_registration=True,
+...     verbose=True,
 ... )
 >>> task.cmdline
-'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -2D'
+'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -cost corratio -2D -v'
 """
 import os
 
@@ -69,6 +71,20 @@ class FLIRTSpec(pydra.specs.ShellSpec):
         metadata={"help_string": "output volume", "argstr": "-out"}
     )
 
+    output_datatype: str = attrs.field(
+        metadata={
+            "help_string": "output datatype",
+            "argstr": "-datatype",
+            "allowed_values": {
+                "char",
+                "short",
+                "int",
+                "float",
+                "double",
+            },
+        }
+    )
+
     input_matrix: os.PathLike = attrs.field(
         metadata={
             "help_string": "input transformation as 4x4 matrix",
@@ -81,6 +97,23 @@ class FLIRTSpec(pydra.specs.ShellSpec):
             "help_string": "output transformation as 4x4 matrix",
             "argstr": "-omat",
         }
+    )
+
+    cost_function: str = attrs.field(
+        default="corratio",
+        metadata={
+            "help_string": "cost function",
+            "argstr": "-cost",
+            "allowed_values": {
+                "mutualinfo",
+                "corratio",
+                "normcorr",
+                "normmi",
+                "leastsq",
+                "labeldiff",
+                "bbr",
+            },
+        },
     )
 
     degrees_of_freedom: int = attrs.field(
@@ -106,6 +139,14 @@ class FLIRTSpec(pydra.specs.ShellSpec):
             "argstr": "-2D",
             "xor": {"degrees_of_freedom"},
         }
+    )
+
+    verbose: bool = attrs.field(
+        default=False,
+        metadata={
+            "help_string": "enable verbose logging",
+            "argstr": "-v",
+        },
     )
 
 
