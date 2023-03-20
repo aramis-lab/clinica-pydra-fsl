@@ -19,7 +19,8 @@ Register two images together:
 ...     degrees_of_freedom=6,
 ... )
 >>> task.cmdline
-'flirt -in invol -ref refvol -out outvol -omat invol2refvol.mat -cost mutualinfo -dof 6'
+'flirt -in invol -ref refvol -out outvol -omat invol2refvol.mat -cost mutualinfo \
+-interp trilinear -dof 6'
 
 Apply a saved transformation to another image:
 
@@ -30,8 +31,8 @@ Apply a saved transformation to another image:
 ...     apply_transformation=True,
 ... )
 >>> task.cmdline
-'flirt -in newvol -ref refvol -out ...newvol_flirt -init invol2refvol.mat -omat ...newvol_flirt.mat \
--cost corratio -applyxfm'
+'flirt -in newvol -ref refvol -out ...newvol_flirt -init invol2refvol.mat \
+-omat ...newvol_flirt.mat -cost corratio -interp trilinear -applyxfm'
 
 Perform a single slice registration:
 
@@ -40,11 +41,13 @@ Perform a single slice registration:
 ...     reference_image="refslice",
 ...     output_image="outslice",
 ...     output_matrix="i2r.mat",
+...     interpolation="nearestneighbour",
 ...     use_2d_registration=True,
 ...     verbose=True,
 ... )
 >>> task.cmdline
-'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -cost corratio -2D -v'
+'flirt -in inslice -ref refslice -out outslice -omat i2r.mat -cost corratio \
+-interp nearestneighbour -2D -v'
 """
 import os
 
@@ -118,6 +121,20 @@ class FLIRTSpec(pydra.specs.ShellSpec):
                 "leastsq",
                 "labeldiff",
                 "bbr",
+            },
+        },
+    )
+
+    interpolation: str = attrs.field(
+        default="trilinear",
+        metadata={
+            "help_string": "interpolation method",
+            "argstr": "-interp",
+            "allowed_values": {
+                "trilinear",
+                "nearestneighbour",
+                "sinc",
+                "spline",
             },
         },
     )
