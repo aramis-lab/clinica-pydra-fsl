@@ -27,7 +27,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
   "Topic :: Software Development :: Libraries",
 ]
-dependencies = ["pydra >=0.21"]
+dependencies = ["pydra >=0.22"]
 
 [project.urls]
 Documentation = "https://github.com/aramis-lab/pydra-fsl#readme"
