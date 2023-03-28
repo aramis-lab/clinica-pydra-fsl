@@ -51,4 +51,4 @@ addopts = [
   "--doctest-modules",
   "--doctest-continue-on-failure",
 ]
-testpaths = ["pydra", "tests"]
+testpaths = ["pydra"]
