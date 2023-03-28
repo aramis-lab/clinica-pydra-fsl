@@ -4,6 +4,7 @@
 """
 
 __all__ = [
+    "ApplyXFM",
     "BET",
     "ConcatXFM",
     "ConvertXFM",
@@ -20,6 +21,7 @@ __all__ = [
 ]
 
 from . import fslmaths
+from .apply_xfm import ApplyXFM
 from .bet import BET
 from .concat_xfm import ConcatXFM
 from .convert_xfm import ConvertXFM
