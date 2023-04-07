@@ -26,5 +26,6 @@ from .utils import (
     FSLReorient2Std,
     FSLSlice,
     FSLSplit,
+    FSLSwapDim,
     fslmaths,
 )
