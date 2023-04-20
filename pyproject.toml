@@ -37,16 +37,9 @@ Documentation = "https://github.com/aramis-lab/pydra-fsl#readme"
 Issues = "https://github.com/aramis-lab/pydra-fsl/issues"
 Source = "https://github.com/aramis-lab/pydra-fsl"
 
-[tool.coverage.run]
-branch = true
-parallel = true
-
-[tool.coverage.report]
-exclude_lines = [
-  "no cov",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
-]
+[tool.black]
+target-version = ["py37"]
+line-length = 120
 
 [tool.isort]
 profile = "black"
@@ -57,4 +50,3 @@ addopts = [
   "--doctest-modules",
   "--doctest-continue-on-failure",
 ]
-testpaths = ["pydra"]
