@@ -24,6 +24,7 @@ from .utils import (
     FSLROI,
     FSLChFileType,
     FSLInfo,
+    FSLInterleave,
     FSLMerge,
     FSLReorient2Std,
     FSLSlice,
