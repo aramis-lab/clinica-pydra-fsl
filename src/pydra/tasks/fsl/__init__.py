@@ -24,6 +24,7 @@ from .utils import (
     FSLFFT,
     FSLROI,
     FSLChFileType,
+    FSLCpGeom,
     FSLInfo,
     FSLInterleave,
     FSLMerge,

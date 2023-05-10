@@ -1,4 +1,5 @@
 from .fslchfiletype import FSLChFileType
+from .fslcpgeom import FSLCpGeom
 from .fslfft import FSLFFT
 from .fslinfo import FSLInfo
 from .fslinterleave import FSLInterleave
