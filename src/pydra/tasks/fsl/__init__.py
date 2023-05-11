@@ -12,6 +12,7 @@ from .flirt import (
     ApplyXFM,
     ConcatXFM,
     ConvertXFM,
+    FixScaleSkew,
     Img2ImgCoord,
     Img2StdCoord,
     InvertXFM,
