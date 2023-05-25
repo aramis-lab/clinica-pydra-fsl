@@ -33,7 +33,7 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/aramis-lab/pydra-fsl#readme"
+Documentation = "https://aramis-lab.github.io/pydra-fsl"
 Issues = "https://github.com/aramis-lab/pydra-fsl/issues"
 Source = "https://github.com/aramis-lab/pydra-fsl"
 
