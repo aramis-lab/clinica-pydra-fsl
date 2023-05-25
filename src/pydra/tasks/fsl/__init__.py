@@ -1,6 +1,18 @@
 """Pydra tasks for FSL.
 
+FSL interfaces are available within the `pydra.tasks.fsl` package.
+
 >>> from pydra.tasks import fsl
+
+.. automodule:: pydra.tasks.fsl.bet
+.. automodule:: pydra.tasks.fsl.eddy
+.. automodule:: pydra.tasks.fsl.fast
+.. automodule:: pydra.tasks.fsl.flirt
+.. automodule:: pydra.tasks.fsl.fnirt
+.. automodule:: pydra.tasks.fsl.fslmaths
+.. automodule:: pydra.tasks.fsl.fugue
+.. automodule:: pydra.tasks.fsl.susan
+.. automodule:: pydra.tasks.fsl.utils
 """
 
 from . import fslmaths
