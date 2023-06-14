@@ -11,9 +11,9 @@ Utils
 .. automodule:: pydra.tasks.fsl.utils.fslreorient2std
 .. automodule:: pydra.tasks.fsl.utils.fslroi
 .. automodule:: pydra.tasks.fsl.utils.fslselectvols
-.. automodule:: pydra.tasks.fsl.utils.fslsmoothfill
-.. automodule:: pydra.tasks.fsl.utils.fslsplit
-.. automodule:: pydra.tasks.fsl.utils.fslswapdim
+.. automodule:: pydra.tasks.fsl.utils.smoothfill
+.. automodule:: pydra.tasks.fsl.utils.split
+.. automodule:: pydra.tasks.fsl.utils.swapdim
 """
 
 from .fslchfiletype import FSLChFileType
@@ -25,6 +25,6 @@ from .fslorient import FSLOrient
 from .fslreorient2std import FSLReorient2Std
 from .fslroi import FSLROI
 from .fslselectvols import FSLSelectVols
-from .fslsmoothfill import FSLSmoothFill
-from .fslsplit import FSLSlice, FSLSplit
-from .fslswapdim import FSLSwapDim
+from .smoothfill import SmoothFill
+from .split import Slice, Split
+from .swapdim import SwapDim

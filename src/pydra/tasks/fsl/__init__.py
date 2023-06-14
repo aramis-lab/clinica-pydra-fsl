@@ -43,8 +43,14 @@ from .utils import (
     FSLOrient,
     FSLReorient2Std,
     FSLSelectVols,
-    FSLSlice,
-    FSLSmoothFill,
-    FSLSplit,
-    FSLSwapDim,
+    Slice,
+    SmoothFill,
+    Split,
+    SwapDim,
 )
+
+# TODO: Drop compatibility alias when 0.x is released.
+FSLSlice = Slice
+FSLSmoothFill = SmoothFill
+FSLSplit = Split
+FSLSwapDim = SwapDim
