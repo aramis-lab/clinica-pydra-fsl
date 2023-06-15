@@ -40,8 +40,8 @@ from .utils import (
     FSLInfo,
     FSLInterleave,
     FSLMerge,
-    FSLOrient,
-    FSLReorient2Std,
+    Orient,
+    Reorient2Std,
     SelectVols,
     Slice,
     SmoothFill,
@@ -51,6 +51,8 @@ from .utils import (
 
 # TODO: Drop compatibility aliases when 0.x is released.
 FSLROI = ROI
+FSLOrient = Orient
+FSLReorient2Std = Reorient2Std
 FSLSelectVols = SelectVols
 FSLSlice = Slice
 FSLSmoothFill = SmoothFill

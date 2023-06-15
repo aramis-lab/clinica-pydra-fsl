@@ -7,8 +7,8 @@ Utils
 .. automodule:: pydra.tasks.fsl.utils.fslinfo
 .. automodule:: pydra.tasks.fsl.utils.fslinterleave
 .. automodule:: pydra.tasks.fsl.utils.fslmerge
-.. automodule:: pydra.tasks.fsl.utils.fslorient
-.. automodule:: pydra.tasks.fsl.utils.fslreorient2std
+.. automodule:: pydra.tasks.fsl.utils.orient
+.. automodule:: pydra.tasks.fsl.utils.reorient2std
 .. automodule:: pydra.tasks.fsl.utils.roi
 .. automodule:: pydra.tasks.fsl.utils.selectvols
 .. automodule:: pydra.tasks.fsl.utils.smoothfill
@@ -21,8 +21,8 @@ from .fslfft import FSLFFT
 from .fslinfo import FSLInfo
 from .fslinterleave import FSLInterleave
 from .fslmerge import FSLMerge
-from .fslorient import FSLOrient
-from .fslreorient2std import FSLReorient2Std
+from .orient import Orient
+from .reorient2std import Reorient2Std
 from .roi import ROI
 from .selectvols import SelectVols
 from .smoothfill import SmoothFill
