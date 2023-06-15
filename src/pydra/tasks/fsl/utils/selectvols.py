@@ -1,19 +1,19 @@
 """
-FSLSelectVols
-=============
+SelectVols
+==========
 
 Examples
 --------
 
 Select volumes from a list and concatenate them:
 
->>> task = FSLSelectVols(input_image="input.nii", volumes=[0, 1, 6, 7])
+>>> task = SelectVols(input_image="input.nii", volumes=[0, 1, 6, 7])
 >>> task.cmdline
-'fslselectvols --in input.nii --out .../input_vols.nii --vols 0,1,6,7'
+'fslselectvols --in input.nii --out .../input_selectvols.nii --vols 0,1,6,7'
 
 Select volumes from a file and calculate their mean:
 
->>> task = FSLSelectVols(
+>>> task = SelectVols(
 ...     input_image="input.nii",
 ...     output_image="mean.nii",
 ...     volumes="volumes.txt",
@@ -24,7 +24,7 @@ Select volumes from a file and calculate their mean:
 
 Select volumes from a file and calculate their variance:
 
->>> task = FSLSelectVols(
+>>> task = SelectVols(
 ...     input_image="input.nii",
 ...     output_image="variance.nii",
 ...     volumes="volumes.txt",
@@ -34,7 +34,7 @@ Select volumes from a file and calculate their variance:
 'fslselectvols --in input.nii --out variance.nii --vols volumes.txt -v'
 """
 
-__all__ = ["FSLSelectVols"]
+__all__ = ["SelectVols"]
 
 import os
 import typing as ty
@@ -45,13 +45,13 @@ import pydra
 
 
 @attrs.define(slots=False, kw_only=True)
-class FSLSelectVolsSpec(pydra.specs.ShellSpec):
+class SelectVolsSpec(pydra.specs.ShellSpec):
     """Specifications for fslselectvols."""
 
-    input_image: os.PathLike = attrs.field(metadata={"help_string": "input_image", "mandatory": True, "argstr": "--in"})
+    input_image: os.PathLike = attrs.field(metadata={"help_string": "input image", "mandatory": True, "argstr": "--in"})
 
     output_image: str = attrs.field(
-        metadata={"help_string": "output image", "argstr": "--out", "output_file_template": "{input_image}_vols"}
+        metadata={"help_string": "output image", "argstr": "--out", "output_file_template": "{input_image}_selectvols"}
     )
 
     volumes: ty.Union[os.PathLike, ty.Iterable[int]] = attrs.field(
@@ -81,9 +81,9 @@ class FSLSelectVolsSpec(pydra.specs.ShellSpec):
     )
 
 
-class FSLSelectVols(pydra.engine.ShellCommandTask):
+class SelectVols(pydra.engine.ShellCommandTask):
     """Task definition for fslselectvols."""
 
     executable = "fslselectvols"
 
-    input_spec = pydra.specs.SpecInfo(name="Input", bases=(FSLSelectVolsSpec,))
+    input_spec = pydra.specs.SpecInfo(name="Input", bases=(SelectVolsSpec,))

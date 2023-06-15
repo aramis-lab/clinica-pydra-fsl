@@ -35,21 +35,23 @@ from .fugue import FUGUE, FSLPrepareFieldmap, Prelude, SigLoss
 from .susan import SUSAN
 from .utils import (
     FSLFFT,
-    FSLROI,
+    ROI,
     FSLChFileType,
     FSLInfo,
     FSLInterleave,
     FSLMerge,
     FSLOrient,
     FSLReorient2Std,
-    FSLSelectVols,
+    SelectVols,
     Slice,
     SmoothFill,
     Split,
     SwapDim,
 )
 
-# TODO: Drop compatibility alias when 0.x is released.
+# TODO: Drop compatibility aliases when 0.x is released.
+FSLROI = ROI
+FSLSelectVols = SelectVols
 FSLSlice = Slice
 FSLSmoothFill = SmoothFill
 FSLSplit = Split
