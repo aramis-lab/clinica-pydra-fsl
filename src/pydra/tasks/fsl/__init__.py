@@ -39,7 +39,7 @@ from .utils import (
     FSLChFileType,
     FSLInfo,
     FSLInterleave,
-    FSLMerge,
+    Merge,
     Orient,
     Reorient2Std,
     SelectVols,
@@ -51,6 +51,7 @@ from .utils import (
 
 # TODO: Drop compatibility aliases when 0.x is released.
 FSLROI = ROI
+FSLMerge = Merge
 FSLOrient = Orient
 FSLReorient2Std = Reorient2Std
 FSLSelectVols = SelectVols

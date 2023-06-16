@@ -38,11 +38,11 @@ Delete orientation:
 __all__ = ["Orient"]
 
 from attrs import define, field
-from pydra.engine.task import ShellCommandTask
 from pydra.engine.specs import File, ShellOutSpec, ShellSpec, SpecInfo
+from pydra.engine.task import ShellCommandTask
 
 
-@define(slots=False, kw_only=True)
+@define(kw_only=True)
 class OrientSpec(ShellSpec):
     """Specifications for fslorient."""
 
@@ -69,7 +69,7 @@ class OrientSpec(ShellSpec):
     )
 
 
-@define(slots=False, kw_only=True)
+@define(kw_only=True)
 class OrientOutSpec(ShellOutSpec):
     """Output specifications for fslorient."""
 

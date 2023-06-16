@@ -36,54 +36,46 @@ Select volumes from a file and calculate their variance:
 
 __all__ = ["SelectVols"]
 
-import os
-import typing as ty
+from os import PathLike
+from typing import Iterable, Union
 
-import attrs
+from attrs import define, field
+from pydra.engine.specs import ShellSpec, SpecInfo
+from pydra.engine.task import ShellCommandTask
 
-import pydra
 
-
-@attrs.define(slots=False, kw_only=True)
-class SelectVolsSpec(pydra.specs.ShellSpec):
+@define(kw_only=True)
+class SelectVolsSpec(ShellSpec):
     """Specifications for fslselectvols."""
 
-    input_image: os.PathLike = attrs.field(metadata={"help_string": "input image", "mandatory": True, "argstr": "--in"})
+    input_image: PathLike = field(metadata={"help_string": "input image", "mandatory": True, "argstr": "--in"})
 
-    output_image: str = attrs.field(
+    output_image: str = field(
         metadata={"help_string": "output image", "argstr": "--out", "output_file_template": "{input_image}_selectvols"}
     )
 
-    volumes: ty.Union[os.PathLike, ty.Iterable[int]] = attrs.field(
+    volumes: Union[PathLike, Iterable[int]] = field(
         metadata={
             "help_string": "volumes to select (from a file or as a list)",
             "mandatory": True,
-            "formatter": lambda field: (
-                f"--vols {str(field) if isinstance(field, (os.PathLike, str)) else ','.join(map(str, field))}"
+            "formatter": lambda volumes: (
+                f"--vols {str(volumes) if isinstance(volumes, (PathLike, str)) else ','.join(map(str, volumes))}"
             ),
         }
     )
 
-    calculate_mean: bool = attrs.field(
-        metadata={
-            "help_string": "calculate mean instead of concatenating",
-            "argstr": "-m",
-            "xor": {"calculate_variance"},
-        }
+    calculate_mean: bool = field(
+        metadata={"help_string": "calculate mean", "argstr": "-m", "xor": {"calculate_variance"}}
     )
 
-    calculate_variance: bool = attrs.field(
-        metadata={
-            "help_string": "calculate variance instead of concatenating",
-            "argstr": "-v",
-            "xor": {"calculate_mean"},
-        }
+    calculate_variance: bool = field(
+        metadata={"help_string": "calculate variance", "argstr": "-v", "xor": {"calculate_mean"}}
     )
 
 
-class SelectVols(pydra.engine.ShellCommandTask):
+class SelectVols(ShellCommandTask):
     """Task definition for fslselectvols."""
 
     executable = "fslselectvols"
 
-    input_spec = pydra.specs.SpecInfo(name="Input", bases=(SelectVolsSpec,))
+    input_spec = SpecInfo(name="Input", bases=(SelectVolsSpec,))

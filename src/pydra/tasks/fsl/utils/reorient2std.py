@@ -22,7 +22,7 @@ from pydra.engine.specs import ShellSpec, SpecInfo
 from pydra.engine.task import ShellCommandTask
 
 
-@define(slots=False, kw_only=True)
+@define(kw_only=True)
 class Reorient2StdSpec(ShellSpec):
     """Specifications for fslreorient2std."""
 
