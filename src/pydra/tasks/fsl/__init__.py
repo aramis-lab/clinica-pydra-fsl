@@ -37,8 +37,8 @@ from .utils import (
     FSLFFT,
     ROI,
     FSLChFileType,
-    FSLInfo,
-    FSLInterleave,
+    Info,
+    Interleave,
     Merge,
     Orient,
     Reorient2Std,
@@ -51,6 +51,8 @@ from .utils import (
 
 # TODO: Drop compatibility aliases when 0.x is released.
 FSLROI = ROI
+FSLInfo = Info
+FSLInterleave = Interleave
 FSLMerge = Merge
 FSLOrient = Orient
 FSLReorient2Std = Reorient2Std

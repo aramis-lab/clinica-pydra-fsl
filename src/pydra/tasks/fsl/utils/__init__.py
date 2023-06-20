@@ -4,8 +4,8 @@ Utils
 
 .. automodule:: pydra.tasks.fsl.utils.fslchfiletype
 .. automodule:: pydra.tasks.fsl.utils.fslfft
-.. automodule:: pydra.tasks.fsl.utils.fslinfo
-.. automodule:: pydra.tasks.fsl.utils.fslinterleave
+.. automodule:: pydra.tasks.fsl.utils.info
+.. automodule:: pydra.tasks.fsl.utils.interleave
 .. automodule:: pydra.tasks.fsl.utils.merge
 .. automodule:: pydra.tasks.fsl.utils.orient
 .. automodule:: pydra.tasks.fsl.utils.reorient2std
@@ -18,8 +18,8 @@ Utils
 
 from .fslchfiletype import FSLChFileType
 from .fslfft import FSLFFT
-from .fslinfo import FSLInfo
-from .fslinterleave import FSLInterleave
+from .info import Info
+from .interleave import Interleave
 from .merge import Merge
 from .orient import Orient
 from .reorient2std import Reorient2Std
