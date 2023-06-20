@@ -31,7 +31,7 @@ from .flirt import (
     Std2ImgCoord,
 )
 from .fnirt import FNIRT, ApplyWarp, ConvertWarp, FNIRTFileUtils, InvWarp
-from .fugue import FUGUE, FSLPrepareFieldmap, Prelude, SigLoss
+from .fugue import FUGUE, Prelude, PrepareFieldmap, SigLoss
 from .susan import SUSAN
 from .utils import (
     FFT,
@@ -57,6 +57,7 @@ FSLInfo = Info
 FSLInterleave = Interleave
 FSLMerge = Merge
 FSLOrient = Orient
+FSLPrepareFieldmap = PrepareFieldmap
 FSLReorient2Std = Reorient2Std
 FSLSelectVols = SelectVols
 FSLSlice = Slice
