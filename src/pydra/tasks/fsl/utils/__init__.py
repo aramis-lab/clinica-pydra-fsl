@@ -2,8 +2,8 @@
 Utils
 =====
 
-.. automodule:: pydra.tasks.fsl.utils.fslchfiletype
-.. automodule:: pydra.tasks.fsl.utils.fslfft
+.. automodule:: pydra.tasks.fsl.utils.chfiletype
+.. automodule:: pydra.tasks.fsl.utils.fft
 .. automodule:: pydra.tasks.fsl.utils.info
 .. automodule:: pydra.tasks.fsl.utils.interleave
 .. automodule:: pydra.tasks.fsl.utils.merge
@@ -16,8 +16,8 @@ Utils
 .. automodule:: pydra.tasks.fsl.utils.swapdim
 """
 
-from .fslchfiletype import FSLChFileType
-from .fslfft import FSLFFT
+from .chfiletype import ChFileType
+from .fft import FFT
 from .info import Info
 from .interleave import Interleave
 from .merge import Merge

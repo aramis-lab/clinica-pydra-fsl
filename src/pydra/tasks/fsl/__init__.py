@@ -34,9 +34,9 @@ from .fnirt import FNIRT, ApplyWarp, ConvertWarp, FNIRTFileUtils, InvWarp
 from .fugue import FUGUE, FSLPrepareFieldmap, Prelude, SigLoss
 from .susan import SUSAN
 from .utils import (
-    FSLFFT,
+    FFT,
     ROI,
-    FSLChFileType,
+    ChFileType,
     Info,
     Interleave,
     Merge,
@@ -50,7 +50,9 @@ from .utils import (
 )
 
 # TODO: Drop compatibility aliases when 0.x is released.
+FSLFFT = FFT
 FSLROI = ROI
+FSLChFileType = ChFileType
 FSLInfo = Info
 FSLInterleave = Interleave
 FSLMerge = Merge
