@@ -18,6 +18,10 @@ Multiply input image with a binary mask:
 >>> task = Mul(input_image="input.nii", other_image="mask.nii", output_image="output.nii")
 >>> task.cmdline
 'fslmaths input.nii -mul mask.nii output.nii'
+
+>>> task = Threshold(input_image="input.nii", threshold=0.3, output_image="output.nii")
+>>> task.cmdline
+'fslmaths input.nii -thr 0.3 output.nii'
 """
 
 __all__ = ["Maths", "MathsSpec", "Mul", "Threshold"]
