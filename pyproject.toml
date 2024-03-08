@@ -37,6 +37,30 @@ Documentation = "https://aramis-lab.github.io/pydra-fsl"
 Issues = "https://github.com/aramis-lab/pydra-fsl/issues"
 Source = "https://github.com/aramis-lab/pydra-fsl"
 
+[tool.hatch.build.targets.wheel]
+only-include = ["src/pydra/tasks/fsl"]
+sources = ["src"]
+
+[tool.hatch.envs.default]
+dependencies = ["pytest"]
+[tool.hatch.envs.default.scripts]
+test = "pytest {args}"
+
+[[tool.hatch.envs.default.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+[tool.hatch.envs.docs]
+template = "docs"
+dependencies = [
+  "pydata-sphinx-theme >=0.13",
+  "sphinx <7",
+  "sphinx-autobuild",
+  "sphinx-pyproject",
+]
+[tool.hatch.envs.docs.scripts]
+build = "sphinx-build docs docs/_build/html -b {args:html}"
+serve = "sphinx-autobuild docs docs/_build/html {args}"
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = [
