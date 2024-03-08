@@ -7,7 +7,7 @@ dependencies = ["pytest"]
 [envs.default.scripts]
 test = "pytest {args}"
 
-[[envs.all.matrix]]
+[[envs.default.matrix]]
 python = ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
 [envs.lint]
