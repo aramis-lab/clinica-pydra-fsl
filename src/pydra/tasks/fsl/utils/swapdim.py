@@ -38,7 +38,7 @@ from pydra.engine.task import ShellCommandTask
 class SwapDimSpec(ShellSpec):
     """Specifications for fslswapdim."""
 
-    ALLOWED_AXES = {"x", "-x", "y", "-y", "z", "-z", "LR", "RL", "AP", "PA", "SI", "IS"}
+    ALLOWED_AXES = frozenset(["x", "-x", "y", "-y", "z", "-z", "LR", "RL", "AP", "PA", "SI", "IS"])
 
     input_image: PathLike = field(metadata={"help_string": "input image", "mandatory": True, "argstr": ""})
 

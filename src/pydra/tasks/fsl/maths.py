@@ -37,7 +37,7 @@ from pydra.engine.task import ShellCommandTask
 class MathsSpec(ShellSpec):
     """Specifications for fslmaths."""
 
-    _datatypes = {"char", "short", "int", "float", "double", "input"}
+    _datatypes = frozenset(["char", "short", "int", "float", "double", "input"])
 
     internal_datatype: str = field(
         metadata={"help_string": "internal datatype", "argstr": "-dt", "position": 1, "allowed_values": _datatypes}

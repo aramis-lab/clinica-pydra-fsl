@@ -24,7 +24,6 @@ Examples
 __all__ = ["Eddy"]
 
 from os import PathLike
-from pathlib import PurePath
 
 from attrs import define, field
 from pydra.engine.specs import File, ShellOutSpec, ShellSpec, SpecInfo

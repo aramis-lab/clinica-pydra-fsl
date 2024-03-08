@@ -55,8 +55,8 @@ def _get_output_header(output_basename, input_image, filetype):
     if any(pat in filetype for pat in ["ANALYZE", "PAIR"]):
         extension = "hdr.gz" if "GZ" in filetype else "hdr"
         return Path.cwd() / f"{output_basename}.{extension}"
-    else:
-        return None
+
+    return None
 
 
 @define(kw_only=True)

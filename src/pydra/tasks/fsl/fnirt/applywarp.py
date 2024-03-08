@@ -31,10 +31,8 @@ import os
 import typing as ty
 
 import attrs
-
 import pydra
-
-from . import specs
+from pydra.tasks.fsl.fnirt import specs
 
 
 @attrs.define(slots=False, kw_only=True)

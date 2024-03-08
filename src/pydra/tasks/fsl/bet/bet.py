@@ -13,7 +13,6 @@ import os
 import typing as ty
 
 import attrs
-
 import pydra
 
 
@@ -105,13 +104,15 @@ class BETSpec(pydra.specs.ShellSpec):
 class BETVariationsSpec(pydra.specs.ShellSpec):
     """Specifications for BET variations."""
 
-    _xor = {
-        "with_robust_brain_center_estimation",
-        "with_eye_and_optic_nerve_cleanup",
-        "with_bias_field_and_neck_cleanup",
-        "with_small_fov_in_z",
-        "with_4d_fmri_data",
-    }
+    _xor = frozenset(
+        [
+            "with_robust_brain_center_estimation",
+            "with_eye_and_optic_nerve_cleanup",
+            "with_bias_field_and_neck_cleanup",
+            "with_small_fov_in_z",
+            "with_4d_fmri_data",
+        ]
+    )
 
     with_robust_brain_center_estimation: bool = attrs.field(
         metadata={

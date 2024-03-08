@@ -16,7 +16,7 @@ from os import PathLike
 from typing import Iterable
 
 from attrs import define, field
-from pydra.engine.specs import File, ShellOutSpec, ShellSpec, SpecInfo
+from pydra.engine.specs import ShellSpec, SpecInfo
 from pydra.engine.task import ShellCommandTask
 
 

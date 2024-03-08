@@ -29,10 +29,8 @@ __all__ = ["FNIRTFileUtils"]
 import os
 
 import attrs
-
 import pydra
-
-from . import specs
+from pydra.tasks.fsl.fnirt import specs
 
 
 @attrs.define(slots=False, kw_only=True)
@@ -74,7 +72,6 @@ class FNIRTFileUtilsSpec(pydra.specs.ShellSpec):
         metadata={
             "help_string": "warp resolution in millimeters",
             "argstr": "--warpres",
-            # "requires": {("output_format", "spline")},  # TODO
         }
     )
 
@@ -82,7 +79,6 @@ class FNIRTFileUtilsSpec(pydra.specs.ShellSpec):
         metadata={
             "help_string": "knot spacing in voxels",
             "argstr": "--knotspace",
-            # "requires": {("output_format", "spline")},  # TODO
         }
     )
 

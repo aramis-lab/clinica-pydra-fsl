@@ -15,25 +15,9 @@ FSL interfaces are available within the `pydra.tasks.fsl` package.
 .. automodule:: pydra.tasks.fsl.utils
 """
 
-from . import maths
-from .bet import BET, RobustFOV
-from .eddy import ApplyTopup, Eddy, Topup
-from .fast import FAST
-from .flirt import (
-    FLIRT,
-    ApplyXFM,
-    ConcatXFM,
-    ConvertXFM,
-    FixScaleSkew,
-    Img2ImgCoord,
-    Img2StdCoord,
-    InvertXFM,
-    Std2ImgCoord,
-)
-from .fnirt import FNIRT, ApplyWarp, ConvertWarp, FNIRTFileUtils, InvWarp
-from .fugue import FUGUE, Prelude, PrepareFieldmap, SigLoss
-from .susan import SUSAN
-from .utils import (
+from pydra.tasks.fsl import maths
+from pydra.tasks.fsl.fugue import PrepareFieldmap
+from pydra.tasks.fsl.utils import (
     FFT,
     ROI,
     ChFileType,

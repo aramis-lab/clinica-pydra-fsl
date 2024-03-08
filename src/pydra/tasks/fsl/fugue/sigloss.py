@@ -17,7 +17,6 @@ __all__ = ["SigLoss"]
 import os
 
 import attrs
-
 import pydra
 
 

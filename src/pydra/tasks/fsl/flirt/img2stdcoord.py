@@ -20,10 +20,8 @@ __all__ = ["Img2StdCoord"]
 import os
 
 import attrs
-
 import pydra
-
-from . import specs
+from pydra.tasks.fsl.flirt import specs
 
 
 @attrs.define(slots=False, kw_only=True)

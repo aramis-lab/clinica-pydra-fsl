@@ -33,7 +33,6 @@ __all__ = ["FUGUE"]
 import os
 
 import attrs
-
 import pydra
 
 

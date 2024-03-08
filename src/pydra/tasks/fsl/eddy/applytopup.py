@@ -66,7 +66,7 @@ def _to_topup_basename(fieldmap_image: PathLike, field_coefficients_image: PathL
         path = PurePath(fieldmap_image)
         basename = path.parent / path.name.split(".", 1)[0]
 
-    return f"--topup={str(basename)}"
+    return f"--topup={basename!s}"
 
 
 def _to_output_image(

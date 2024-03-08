@@ -26,7 +26,6 @@ __all__ = ["SUSAN"]
 import os
 
 import attrs
-
 import pydra
 
 

@@ -10,23 +10,6 @@ test = "pytest {args}"
 [[envs.default.matrix]]
 python = ["3.7", "3.8", "3.9", "3.10", "3.11"]
 
-[envs.lint]
-detached = true
-dependencies = [
-  "black",
-  "isort",
-  "tomli",
-]
-[envs.lint.scripts]
-all = [
-  "black --check --diff {args:src}",
-  "isort --check --diff {args:src}",
-]
-fix = [
-  "black --quiet {args:src}",
-  "isort --quiet {args:src}",
-]
-
 [envs.docs]
 template = "docs"
 dependencies = [

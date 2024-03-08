@@ -7,6 +7,8 @@ Eddy
 .. automodule:: pydra.tasks.fsl.eddy.applytopup
 """
 
-from .applytopup import ApplyTopup
-from .eddy import Eddy
-from .topup import Topup
+from pydra.tasks.fsl.eddy.applytopup import ApplyTopup
+from pydra.tasks.fsl.eddy.eddy import Eddy
+from pydra.tasks.fsl.eddy.topup import Topup
+
+__all__ = ["ApplyTopup", "Eddy", "Topup"]

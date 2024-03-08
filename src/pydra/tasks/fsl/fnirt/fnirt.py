@@ -34,10 +34,8 @@ import os
 import typing as ty
 
 import attrs
-
 import pydra
-
-from . import specs
+from pydra.tasks.fsl.fnirt import specs
 
 
 def _format_list(field: list):

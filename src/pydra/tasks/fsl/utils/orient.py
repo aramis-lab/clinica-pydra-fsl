@@ -46,7 +46,7 @@ from pydra.engine.task import ShellCommandTask
 class OrientSpec(ShellSpec):
     """Specifications for fslorient."""
 
-    _xor = {"delete_orientation", "force_radiological", "force_neurological", "swap_orientation"}
+    _xor = frozenset(["delete_orientation", "force_radiological", "force_neurological", "swap_orientation"])
 
     input_image: File = field(
         metadata={"help_string": "input image", "mandatory": True, "argstr": "", "position": -1, "copyfile": True}

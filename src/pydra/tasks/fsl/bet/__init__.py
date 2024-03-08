@@ -6,5 +6,7 @@ BET
 .. automodule:: pydra.tasks.fsl.bet.robustfov
 """
 
-from .bet import BET
-from .robustfov import RobustFOV
+from pydra.tasks.fsl.bet.bet import BET
+from pydra.tasks.fsl.bet.robustfov import RobustFOV
+
+__all__ = ["BET", "RobustFOV"]

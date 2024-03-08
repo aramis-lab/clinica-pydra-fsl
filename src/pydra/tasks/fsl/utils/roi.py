@@ -41,7 +41,7 @@ from pydra.engine.task import ShellCommandTask
 class ROISpec(ShellSpec):
     """Specifications for fslroi."""
 
-    _requires = {"x_min", "y_min", "z_min"}
+    _requires = frozenset(["x_min", "y_min", "z_min"])
 
     input_image: PathLike = field(metadata={"help_string": "input image", "mandatory": True, "argstr": ""})
 
