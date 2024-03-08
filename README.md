@@ -65,7 +65,7 @@ hatch run test
 To fix linting issues:
 
 ```console
-hatch run lint:fix
+hatch fmt
 ```
 
 ## License
