@@ -3,15 +3,15 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pydra-fsl"
+name = "clinica-pydra-fsl"
 version = "0.0.22"
-description = "Pydra tasks for FSL"
+description = "Pydra tasks for FSL designed for Clinica"
 readme = "README.md"
 requires-python = ">=3.8"
 license = "Apache-2.0"
 keywords = ["pydra", "neuroimaging", "fsl"]
 authors = [
-  { name = "Ghislain Vaillant", email = "ghislain.vaillant@icm-institute.org" },
+  { name = "Ghislain Vaillant", email = "ghislain.vaillant@inria.fr" },
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -33,9 +33,9 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://aramis-lab.github.io/pydra-fsl"
-Issues = "https://github.com/aramis-lab/pydra-fsl/issues"
-Source = "https://github.com/aramis-lab/pydra-fsl"
+Documentation = "https://aramis-lab.github.io/clinica-pydra-fsl"
+Issues = "https://github.com/aramis-lab/clinica-pydra-fsl/issues"
+Source = "https://github.com/aramis-lab/clinica-pydra-fsl"
 
 [tool.hatch.build.targets.wheel]
 only-include = ["src/pydra/tasks/fsl"]

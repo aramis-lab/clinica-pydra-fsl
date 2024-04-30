@@ -5,7 +5,7 @@ About pydra-fsl
 
 `FSL`_ is a comprehensive library of analysis tools for FMRI, MRI and DTI brain imaging data.
 
-pydra-fsl provides Pydra tasks for running and composing FSL commands.
+clinica-pydra-fsl provides Pydra tasks for running and composing FSL commands.
 
 .. toctree::
    :maxdepth: 3

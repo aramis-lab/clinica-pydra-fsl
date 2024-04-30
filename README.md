@@ -2,13 +2,12 @@
 
 [![PyPI - Version][pypi-version]][pypi-project]
 [![PyPI - Python Version][pypi-pyversions]][pypi-project]
-[![PyPI - Downloads][pypi-downloads]][pypi-project]
 ![][status-docs]
 ![][status-test]
 
 ----
 
-Pydra tasks for FSL.
+Pydra tasks for FSL designed for Clinica.
 
 [Pydra][pydra] is a dataflow engine which provides
 a set of lightweight abstractions for DAG
@@ -16,13 +15,6 @@ construction, manipulation, and distributed execution.
 
 [FSL][fsl] is a comprehensive library of analysis tools
 for FMRI, MRI and DTI brain imaging data.
-
-**Table of contents**
-
-- [Available tasks](#available-tasks)
-- [Installation](#installation)
-- [Development](#development)
-- [License](#license)
 
 ## Available tasks
 
@@ -41,7 +33,7 @@ for FMRI, MRI and DTI brain imaging data.
 ## Installation
 
 ```console
-pip install pydra-fsl
+pip install clinica-pydra-fsl
 ```
 
 A separate installation of FSL is required to use this package.
@@ -72,17 +64,15 @@ hatch fmt
 
 This project is distributed under the terms of the [Apache License, Version 2.0][license].
 
-[pypi-project]: https://pypi.org/project/pydra-fsl
+[pypi-project]: https://pypi.org/project/clinica-pydra-fsl
 
-[pypi-version]: https://img.shields.io/pypi/v/pydra-fsl.svg
+[pypi-version]: https://img.shields.io/pypi/v/clinica-pydra-fsl.svg
 
-[pypi-pyversions]: https://img.shields.io/pypi/pyversions/pydra-fsl.svg
+[pypi-pyversions]: https://img.shields.io/pypi/pyversions/clinica-pydra-fsl.svg
 
-[pypi-downloads]: https://static.pepy.tech/badge/pydra-fsl
+[status-docs]: https://github.com/aramis-lab/clinica-pydra-fsl/actions/workflows/docs.yaml/badge.svg
 
-[status-docs]: https://github.com/aramis-lab/pydra-fsl/actions/workflows/docs.yaml/badge.svg
-
-[status-test]: https://github.com/aramis-lab/pydra-fsl/actions/workflows/test.yaml/badge.svg
+[status-test]: https://github.com/aramis-lab/clinica-pydra-fsl/actions/workflows/test.yaml/badge.svg
 
 [pydra]: https://pydra.readthedocs.io/
 
